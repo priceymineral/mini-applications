@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(124, 157, 161);
+}
+
+button {
+  padding: 10px;
+  border: 50px;
+  margin: 100px;
+}
+
+.header {
+  font-size: 20px;
+  font-family: Helvetica;
+  /* padding: 50px; */
+}
