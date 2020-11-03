@@ -1,32 +1,32 @@
 import React from 'react'
 import Form1 from './Form1.jsx'
+import Form2 from './Form2.jsx'
 
 class Home extends React.Component {
   constructor (props) {
-    super(props)
+    super (props)
     this.state = {
-      oneLove: false
+      home: 0,
     }
-    this.checkout = this.checkout.bind(this);
-  }
+
+  this.checkout = this.checkout.bind(this);
+}
+
 
   checkout () {
-    console.log('clicked Checkout!');
-    this.setState({oneLove: !this.state.oneLove});
+    console.log('clicked Checkout!', this.state.home);
+    this.setState({home: this.state.home +=1});
   }
 
-  // renderForm1 () {
-  //   event.preventDefault();
-  //   this.setState(on)
-  // }
-
   render () {
-    return this.state.oneLove ? (<Form1 />) : (<div><header className='header'>Proceed To Checkout</header><button className='checkout-button' onClick={this.checkout}>Checkout</button></div>)
+      return !this.state.home ? (
+      <div>
+        <header className='header'><b>Proceed To Checkout</b></header>
+        <br />
+        <input type='submit' value='Checkout' onClick={this.checkout}/>
+      </div>
+      ) : (<Form1 state={this.state} />)
   }
 }
 
 export default Home
-
-// <form onSubmit={this.renderForm1}>
-// <button className='checkout-button' onClick={this.checkout}>Checkout</button>
-// </form>

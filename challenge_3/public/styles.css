@@ -3,9 +3,10 @@ body {
 }
 
 button {
-  padding: 10px;
+  padding: 5px;
   border: 50px;
-  margin: 100px;
+  margin: 5px;
+  margin-left: 0%;
 }
 
 .header {
