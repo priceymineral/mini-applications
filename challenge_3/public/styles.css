@@ -10,7 +10,12 @@ button {
 }
 
 .header {
-  font-size: 20px;
+  font-size: 40px;
   font-family: Helvetica;
   /* padding: 50px; */
+}
+
+.input {
+  margin-top:10px;
+  padding: 5px;
 }
