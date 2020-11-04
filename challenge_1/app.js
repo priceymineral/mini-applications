@@ -11,31 +11,106 @@ console.log('table:', table);
 // add eventlistener to every tr element
 
 for (var i = 0; i < box.length; i++) {
-  console.log('in loop');
   box[i].addEventListener('click', modifyText, false);
 }
 
-
-var arrayX = [];
-var arrayO = [];
+var arrX = [];
+var arrO = [];
 var count = 0;
 
 function modifyText() {
   if (!count) {
     this.firstChild.nodeValue = 'X';
     count++;
-    arrayX.push(this.cellIndex);
+    arrX.push(this.cellIndex);
   } else if (count % 2 !== 0) {
     this.firstChild.nodeValue = 'O';
     count++;
-    arrayO.push(this.cellIndex);
+    arrO.push(this.cellIndex);
   } else {
     this.firstChild.nodeValue = 'X';
     count++;
-    arrayX.push(this.cellIndex);
+    arrX.push(this.cellIndex);
   }
-  console.log(arrayX, arrayO);
+
+  // Determine a winner
+  var zerocountX = 0;
+  var onecountX = 0;
+  var twocountX = 0;
+  var indexX = 0;
+
+function winnerDeterminatorX(arrX) {
+  console.log(arrX);
+  for (var i = 0; i < arrX.length; i++) {
+    if (arrX[i] === 0) {
+      zerocountX++;
+      indexX = i + 1;
+      if (zerocountX === 3) {
+        console.log(`X Wins!!!`)
+        return;
+      }
+    }
+    if (arrX[i] === 1) {
+      onecountX++;
+      indexX = i + 1;
+      if (onecountX === 3) {
+        console.log(`X Wins!!!`)
+        return;
+      }
+    }
+    if (arrX[i] === 2) {
+      twocountX++;
+      indexX = i + 1;
+      if (twocountX === 3) {
+        console.log(`X Wins!!!`)
+        return;
+      }
+    }
+  }
 }
+
+var zerocountO = 0;
+var onecountO = 0;
+var twocountO = 0;
+var indexO = 0;
+
+function winnerDeterminatorO(arrO) {
+  console.log(arrO);
+  for (var i = indexO; i < arrO.length; i ++) {
+    if (arrO[i] === 0) {
+      zerocountO++;
+      indexO = i + 1;
+      console.log('0: ', zerocountO);
+      if (zerocountO === 3) {
+        console.log(`O Wins!!!`)
+        return;
+      }
+    }
+    if (arrO[i] === 1) {
+      onecountO++;
+      indexO = i + 1;
+      console.log('1: ', onecountO);
+      if (onecountO === 3) {
+        console.log(`O Wins!!!`)
+        return;
+      }
+    }
+    if (arrO[i] === 2) {
+      twocountO++;
+      indexO = i + 1;
+      console.log('2: ', twocountO);
+      if (twocountO === 3) {
+        console.log(`O Wins!!!`)
+        return;
+      }
+    }
+  }
+}
+// winnerDeterminatorX(arrX);
+// winnerDeterminatorO(arrO);
+}
+
+
 
 
 
